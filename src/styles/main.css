@@ -1,0 +1,632 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400&family=Ubuntu:wght@400;500;700&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove padding from ul, ol */
+ul,
+ol {
+  padding: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* FONT SIZE */
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 0.875rem;
+}
+
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+body {
+  height: 100vh;
+  font-family: "Inconsolata", monospace;
+  font-family: "Ubuntu", sans-serif;
+}
+body #root {
+  height: inherit;
+}
+body #root .App {
+  height: inherit;
+  border-radius: 15px;
+  position: relative;
+}
+body #root .App .left {
+  background-image: url(../assets/images/bg-sidebar-mobile.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 38%;
+  padding-top: 10%;
+}
+body #root .App .left form {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin-inline: 15%;
+}
+body #root .App .left form input {
+  display: none;
+}
+body #root .App .left form input:checked + label .number div {
+  background-color: hsl(228, 100%, 84%);
+  color: hsl(213, 96%, 18%);
+}
+body #root .App .left form .number div {
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 2rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  color: white;
+}
+body #root .App .left form .name {
+  display: none;
+}
+body #root .App .right {
+  height: 62%;
+  background-color: hsl(217, 100%, 97%);
+  position: relative;
+}
+body #root .App .right .preview {
+  width: 90vw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  background-color: white;
+  padding: 1rem;
+}
+body #root .App .right .buttons {
+  background-color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+body #root .App .right .buttons .back button {
+  border: none;
+  background: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+body #root .App .right .buttons .back button:disabled {
+  cursor: none;
+}
+body #root .App .right .buttons .next button {
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: hsl(213, 96%, 18%);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+body #root .App .right .buttons .next button:disabled {
+  background-color: gray;
+  cursor: none;
+}
+@media (min-width: 1024px) {
+  body #root .App {
+    display: flex;
+    padding: 1rem;
+  }
+  body #root .App .left {
+    background-image: url(../assets/images/bg-sidebar-desktop.svg);
+    height: 100%;
+    width: 30%;
+    border-radius: 10px;
+    padding-inline: 2rem;
+    padding-top: 3rem;
+  }
+  body #root .App .left form {
+    list-style: none;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: flex-start;
+    margin-inline: 0;
+  }
+  body #root .App .left form label li {
+    display: flex;
+    gap: 1rem;
+  }
+  body #root .App .left form .name {
+    display: block;
+    color: white;
+    text-transform: uppercase;
+  }
+  body #root .App .left form .name .step {
+    font-size: 0.75rem;
+  }
+  body #root .App .right {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+  }
+  body #root .App .right .preview {
+    width: 90%;
+    height: 80%;
+    border-radius: 15px;
+    background-color: white;
+    padding: 1rem;
+    position: absolute;
+  }
+  body #root .App .right .buttons {
+    background-color: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.add {
+  height: 100%;
+}
+.add .header {
+  margin-bottom: 1.5rem;
+}
+.add .header p {
+  color: hsl(231, 11%, 63%);
+}
+.add .options form > div {
+  display: flex;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 10px;
+}
+.add .options form > div + div {
+  margin-top: 1rem;
+}
+.add .options form > div .input-wrapper {
+  display: grid;
+  place-items: center;
+}
+.add .options form > div input {
+  width: 1.5rem;
+  aspect-ratio: 1;
+  margin-inline: 0.75rem;
+}
+.add .options form > div label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 0.75rem;
+  padding-block: 1rem;
+}
+.add .options form > div label p {
+  font-size: 0.9rem;
+}
+.add .options form .monthly-yearly {
+  display: flex;
+  flex: 1;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: hsl(217, 100%, 97%);
+}
+.add .options form .monthly-yearly input {
+  display: none;
+}
+.add .options form .monthly-yearly input:checked + label {
+  border: none;
+}
+.add .options form .monthly-yearly label {
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  padding: 1rem 0.75rem;
+}
+.add .options form .monthly-yearly .slider {
+  border: 1px solid;
+  width: 4rem;
+  aspect-ratio: 2;
+  border-radius: 50px;
+  padding: 0.25rem;
+  position: relative;
+  background-color: hsl(213, 96%, 18%);
+  cursor: pointer;
+}
+.add .options form .monthly-yearly .slider .ball {
+  height: 90%;
+  aspect-ratio: 1;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.25s linear;
+}
+
+.wrapper:has(input:checked) {
+  border: 1px solid hsl(243, 100%, 62%) !important;
+  background-color: hsl(217, 100%, 97%);
+}
+
+.personal {
+  height: 100%;
+  padding-bottom: 1rem;
+}
+.personal .header {
+  margin-bottom: 1.5rem;
+}
+.personal .header p {
+  color: hsl(231, 11%, 63%);
+}
+.personal form input,
+.personal form label {
+  display: block;
+}
+.personal form input {
+  width: 100%;
+  height: 3rem;
+  border: 1px solid hsl(229, 24%, 87%);
+}
+.personal form div + div {
+  margin-top: 0.5rem;
+}
+
+.plan {
+  height: 100%;
+}
+.plan .plans {
+  height: 100%;
+}
+.plan .header {
+  margin-bottom: 1.5rem;
+}
+.plan .header p {
+  color: hsl(231, 11%, 63%);
+}
+.plan form {
+  height: 100%;
+}
+.plan form input {
+  display: none;
+}
+.plan form label {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.5rem;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.plan form label .name-price span {
+  display: block;
+}
+.plan form .each + .each {
+  margin-top: 1rem;
+}
+.plan form input:checked + label {
+  border: 1px solid hsl(243, 100%, 62%) !important;
+  background-color: hsl(217, 100%, 97%);
+}
+.plan form .monthly-yearly {
+  display: flex;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: hsl(217, 100%, 97%);
+}
+.plan form .monthly-yearly input:checked + label {
+  border: none;
+}
+.plan form .monthly-yearly label {
+  border: none;
+  cursor: pointer;
+}
+.plan form .monthly-yearly .slider {
+  border: 1px solid;
+  width: 4rem;
+  aspect-ratio: 2;
+  border-radius: 50px;
+  padding: 0.25rem;
+  position: relative;
+  background-color: hsl(213, 96%, 18%);
+  cursor: pointer;
+}
+.plan form .monthly-yearly .slider .ball {
+  height: 90%;
+  aspect-ratio: 1;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.25s linear;
+}
+@media (min-width: 1024px) {
+  .plan form {
+    height: 100%;
+  }
+  .plan form .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70%;
+  }
+  .plan form .options .each + .each {
+    margin-top: 0;
+  }
+  .plan form .options .each {
+    width: 32%;
+    height: 100%;
+  }
+  .plan form .options .each label {
+    height: 50%;
+    display: flex;
+    align-items: first baseline;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 2rem 0.5rem;
+    gap: 2rem;
+    border: 1px solid hsl(229, 24%, 87%);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .plan form .options .each label .logo img {
+    aspect-ratio: 1;
+    width: 4rem;
+  }
+  .plan form .options .each label .name-price > span {
+    font-weight: 800;
+  }
+  .plan form .options .each label .name-price span {
+    display: block;
+  }
+}
+
+.on {
+  left: 54% !important;
+}
+
+.summary {
+  height: 100%;
+}
+.summary .header p {
+  color: hsl(231, 11%, 63%);
+}
+.summary .review ul {
+  border-radius: 10px;
+  padding: 0.75rem;
+  background-color: hsl(217, 100%, 97%);
+}
+.summary .review ul li {
+  padding-block: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.summary .review ul .plan {
+  border-bottom: 1px solid hsl(229, 24%, 87%);
+}
+.summary .review ul .plan .wrapper h3 {
+  text-transform: capitalize;
+}
+.summary .review ul .plan .wrapper button {
+  color: hsl(231, 11%, 63%);
+  border: none;
+  text-decoration: underline;
+  background: none;
+  cursor: pointer;
+}
+.summary .review ul .extra .top {
+  color: hsl(231, 11%, 63%);
+}
+.summary .review .total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 0.75rem;
+  color: hsl(231, 11%, 63%);
+}
+.summary .review .total h3 {
+  color: black;
+}
+
+.hidden {
+  display: none;
+}
+
+.thanks {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+.thanks .load {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  /* Dark theme  */
+  /* Animation */
+}
+.thanks .load .pl {
+  display: block;
+  width: 6.25em;
+  height: 6.25em;
+}
+.thanks .load .pl__ring, .thanks .load .pl__ball {
+  animation: ring 2s ease-out infinite;
+}
+.thanks .load .pl__ball {
+  animation-name: ball;
+}
+@media (prefers-color-scheme: dark) {
+  .thanks .load :root {
+    --bg: hsl(var(--hue),10%,10%);
+    --fg: hsl(var(--hue),10%,90%);
+  }
+}
+@keyframes ring {
+  from {
+    stroke-dasharray: 0 257 0 0 1 0 0 258;
+  }
+  25% {
+    stroke-dasharray: 0 0 0 0 257 0 258 0;
+  }
+  50%, to {
+    stroke-dasharray: 0 0 0 0 0 515 0 0;
+  }
+}
+@keyframes ball {
+  from, 50% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: 1;
+  }
+  64% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -109;
+  }
+  78% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -145;
+  }
+  92% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -157;
+  }
+  57%, 71%, 85%, 99%, to {
+    animation-timing-function: ease-out;
+    stroke-dashoffset: -163;
+  }
+}
+.thanks .wrapper {
+  display: grid;
+  place-items: center;
+  gap: 2rem;
+  padding-block: 2.5rem;
+}
+.thanks .icon {
+  aspect-ratio: 1;
+  width: 4rem;
+}
+.thanks .message p {
+  text-align: center;
+  color: hsl(231, 11%, 63%);
+}
+@media (min-width: 1024px) {
+  .thanks .wrapper {
+    width: 55%;
+  }
+}/*# sourceMappingURL=main.css.map */

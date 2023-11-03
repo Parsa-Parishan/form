@@ -1,0 +1,56 @@
+.summary {
+  height: 100%;
+  .header {
+    p {
+      color: hsl(231, 11%, 63%);
+    }
+  }
+  .review {
+    ul {
+      border-radius: 10px;
+      padding: 0.75rem;
+      background-color: hsl(217, 100%, 97%);
+      li {
+        padding-block: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .plan {
+        border-bottom: 1px solid hsl(229, 24%, 87%);
+        .wrapper {
+          h3{
+            text-transform: capitalize;
+          }
+          button {
+            color: hsl(231, 11%, 63%);
+            border: none;
+            text-decoration: underline;
+            background: none;
+            cursor: pointer;
+          }
+        }
+      }
+      .extra {
+        .top {
+          color: hsl(231, 11%, 63%);
+        }
+      }
+    }
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-inline: 0.75rem;
+      color: hsl(231, 11%, 63%);
+      h3 {
+        color: black;
+      }
+    }
+  }
+}
+
+
+.hidden {
+  display: none
+}

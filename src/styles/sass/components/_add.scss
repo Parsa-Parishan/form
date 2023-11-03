@@ -1,0 +1,95 @@
+.add {
+  height: 100%;
+  .header {
+    margin-bottom: 1.5rem;
+    p {
+      color: hsl(231, 11%, 63%);
+    }
+  }
+  .options {
+    form {
+      > div {
+        display: flex;
+        border: 1px solid hsl(229, 24%, 87%);
+        border-radius: 10px;
+        + div {
+          margin-top: 1rem;
+        }
+        .input-wrapper {
+          display: grid;
+          place-items: center;
+        }
+        input {
+          width: 1.5rem;
+          aspect-ratio: 1;
+          margin-inline: 0.75rem;
+        }
+        // input:checked ~ div {
+        //   border: 1px solid hsl(229, 24%, 87%);
+        // }
+        label {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-right: 0.75rem;
+          padding-block: 1rem;
+          p {
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      // input:checked + label {
+      //   border: 1px solid black;
+      // }
+      .monthly-yearly {
+        display: flex;
+        flex: 1;
+        margin-top: 2rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        background-color: hsl(217, 100%, 97%);
+        input {
+          display: none;
+        }
+        input:checked + label {
+          border: none;
+        }
+        label {
+          border: none;
+          cursor: pointer;
+          justify-content: center;
+          padding: 1rem 0.75rem;
+        }
+        .slider {
+          border: 1px solid;
+          width: 4rem;
+          aspect-ratio: 2;
+          border-radius: 50px;
+          padding: 0.25rem;
+          position: relative;
+          background-color: hsl(213, 96%, 18%);
+          cursor: pointer;
+          .ball {
+            height: 90%;
+            aspect-ratio: 1;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            left: 3%;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.25s linear;
+          }
+        }
+      }
+    }
+  }
+}
+
+.wrapper:has(input:checked) {
+  border: 1px solid hsl(243, 100%, 62%)!important;
+  background-color: hsl(217, 100%, 97%);
+}
